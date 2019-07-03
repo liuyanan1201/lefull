@@ -1,0 +1,1320 @@
+2019-06-28 10:06:47 DEBUG db_query [db.py-14] select surrender_time from contract where contract_id='10'
+2019-06-28 10:06:47 DEBUG db_query [db.py-20] ((1470412800,),)
+2019-06-28 10:08:12 DEBUG db_query [db.py-14] select surrender_time from contract where contract_id='10'
+2019-06-28 10:08:12 DEBUG db_query [db.py-20] ((1470412800,),)
+2019-06-28 10:08:12 DEBUG db_query [db.py-14] select contract_cycle from contract where contract_id='10'
+2019-06-28 10:08:12 DEBUG db_query [db.py-20] ((12,),)
+2019-06-28 10:08:12 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='38'
+2019-06-28 10:08:13 DEBUG db_query [db.py-20] ((1, '你好', 1, '你好'),)
+2019-06-28 10:08:13 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 10:08:13 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 10:08:13 DEBUG db_query [db.py-14] select ownership_id from records_ownership_info where apartment_id='17'
+2019-06-28 10:08:13 DEBUG db_query [db.py-20] (('8c69f77098a711e9af8c02420a001304',),)
+2019-06-28 10:28:29 INFO <module> [run.py-13] 测试开始==================================================
+2019-06-28 10:28:29 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 10:28:30 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "GET /data/api/v1/contractBillList?contractId=16 HTTP/1.1" 200 None
+2019-06-28 10:28:30 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 10:28:30 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /data/api/v1/surrender/deleteActualStatement HTTP/1.1" 200 None
+2019-06-28 10:28:30 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 10:28:30 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /data/api/v1/bill/mortgagePay HTTP/1.1" 200 None
+2019-06-28 10:28:30 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 10:28:30 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /data/api/v1/updateContractCycle HTTP/1.1" 200 None
+2019-06-28 10:28:30 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 10:28:31 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /data/api/v1/updateRefund HTTP/1.1" 200 None
+2019-06-28 10:28:31 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 10:28:31 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /data/api/v1/surrender/updateSurrenderTime HTTP/1.1" 200 None
+2019-06-28 10:28:31 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 10:28:31 INFO log_case_info [case_log.py-5] 执行用例：test_updatesurrendertime
+2019-06-28 10:28:31 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/data/api/v1/surrender/updateSurrenderTime
+2019-06-28 10:28:31 INFO log_case_info [case_log.py-7] 请求数据：{'contractId': '10', 'surrenderTime': 1470412800}
+2019-06-28 10:28:31 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":1,
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561511244881",
+	"responseTime":"2019-06-28 10:28:33",
+	"spendTime":""
+}
+2019-06-28 10:28:31 DEBUG db_query [db.py-14] select surrender_time from contract where contract_id='10'
+2019-06-28 10:28:31 DEBUG db_query [db.py-20] ((1470412800,),)
+2019-06-28 10:28:31 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 10:28:31 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/landlord HTTP/1.1" 200 None
+2019-06-28 10:28:31 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 10:28:31 INFO log_case_info [case_log.py-5] 执行用例：test_landlord_new
+2019-06-28 10:28:31 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/landlord
+2019-06-28 10:28:31 INFO log_case_info [case_log.py-7] 请求数据：{'apartmentId': '18', 'cardName': '十里河佰汇', 'cardNo': '220422199006091234', 'cardType': 1, 'ifOwner': 0, 'landlordTitle': '十里河佰汇出租企业主体名称', 'landlordType': 1, 'mobile': '15910457777'}
+2019-06-28 10:28:31 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561455098947",
+	"responseTime":"2019-06-28 10:28:34"
+}
+2019-06-28 10:28:31 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 10:28:31 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 10:28:31 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 10:28:31 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 10:28:31 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 10:28:31 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 10:28:31 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 10:28:32 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 10:28:32 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 10:28:32 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "GET /records//api/v1/landlord?apartmentId=18 HTTP/1.1" 200 None
+2019-06-28 10:28:32 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 10:28:32 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/landlord HTTP/1.1" 200 None
+2019-06-28 10:28:32 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 10:28:32 INFO log_case_info [case_log.py-5] 执行用例：test_landlord_alter
+2019-06-28 10:28:32 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/landlord
+2019-06-28 10:28:32 INFO log_case_info [case_log.py-7] 请求数据：{'apartmentId': '18', 'cardName': '十里河佰汇修改', 'cardNo': '220422199006091234', 'cardType': 1, 'ifOwner': 0, 'landlordId': 'f756d642973311e9af8c02420a001304', 'landlordTitle': '十里河佰汇出租企业主体名称修改', 'landlordType': 1, 'mobile': '15910457777'}
+2019-06-28 10:28:32 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454876646",
+	"responseTime":"2019-06-28 10:28:34"
+}
+2019-06-28 10:28:32 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 10:28:32 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 10:28:32 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 10:28:32 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 10:28:32 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 10:28:32 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 10:28:32 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 10:28:32 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 10:28:32 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 10:28:32 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/landlord HTTP/1.1" 200 None
+2019-06-28 10:28:32 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 10:28:32 INFO log_case_info [case_log.py-5] 执行用例：test_landlord_geren
+2019-06-28 10:28:32 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/landlord
+2019-06-28 10:28:32 INFO log_case_info [case_log.py-7] 请求数据：{'apartmentId': '15', 'cardName': '传媒大学1', 'cardNo': '220422199006096666', 'cardType': 1, 'ifOwner': 0, 'landlordTitle': '', 'landlordType': 0, 'mobile': '15910457777'}
+2019-06-28 10:28:32 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561455283905",
+	"responseTime":"2019-06-28 10:28:35"
+}
+2019-06-28 10:28:32 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='15'
+2019-06-28 10:28:32 DEBUG db_query [db.py-20] ((0, '', 1, '传媒大学1'),)
+2019-06-28 10:28:32 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='15'
+2019-06-28 10:28:32 DEBUG db_query [db.py-20] ((0, '', 1, '传媒大学1'),)
+2019-06-28 10:28:32 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='15'
+2019-06-28 10:28:33 DEBUG db_query [db.py-20] ((0, '', 1, '传媒大学1'),)
+2019-06-28 10:28:33 DEBUG db_query [db.py-14] select * from records_ownership_info where apartment_id='17'
+2019-06-28 10:28:33 DEBUG db_query [db.py-20] ((60, '8c69f77098a711e9af8c02420a001304', 17, 1, None, '百子湾权证号修改001', 0, '百子湾花园修改', 0, b'7)KE\xfb\xf0\xeb^,\xb4o\xa7"\x030*\x0f\xbb\x1d\xb1\x1c.k\xc0\xf7\xc7r\xaf\x12&\xa8#', 'f65509b393230424c8dfc9e97d555e75', None, '7', '北京百子湾花园修改', None, None, None, None, None, 1561618099, 1561618100, 0, 0),)
+2019-06-28 10:28:33 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 10:28:33 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/ownership HTTP/1.1" 200 None
+2019-06-28 10:28:33 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 10:28:33 INFO log_case_info [case_log.py-5] 执行用例：test_ownership_new
+2019-06-28 10:28:33 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/ownership
+2019-06-28 10:28:33 INFO log_case_info [case_log.py-7] 请求数据：{'address': '北京百子湾花园', 'apartmentId': '17', 'certNo': '百子湾权证号001', 'certType': 1, 'ownerCardNo': '220422199009088888', 'ownerCardType': 0, 'ownerName': '百子湾花园', 'ownerType': 0, 'ownershipId': ''}
+2019-06-28 10:28:33 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"操作成功",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454375251",
+	"responseTime":"2019-06-28 10:28:35"
+}
+2019-06-28 10:28:33 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 10:28:33 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 10:28:33 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 10:28:33 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 10:28:33 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 10:28:33 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 10:28:33 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 10:28:33 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 10:28:33 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 10:28:33 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "GET /records//api/v1/ownership?apartmentId=17 HTTP/1.1" 200 None
+2019-06-28 10:28:33 DEBUG db_query [db.py-14] select ownership_id from records_ownership_info where apartment_id='17'
+2019-06-28 10:28:34 DEBUG db_query [db.py-20] (('6e5818a9994c11e9af8c02420a001304',),)
+2019-06-28 10:28:34 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 10:28:34 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/ownership HTTP/1.1" 200 None
+2019-06-28 10:28:34 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 10:28:34 INFO log_case_info [case_log.py-5] 执行用例：test_ownership_alter
+2019-06-28 10:28:34 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/ownership
+2019-06-28 10:28:34 INFO log_case_info [case_log.py-7] 请求数据：{'address': '北京百子湾花园修改', 'apartmentId': '17', 'certNo': '百子湾权证号修改001', 'certType': 1, 'ownerCardNo': '220422199009088800', 'ownerCardType': 0, 'ownerName': '百子湾花园修改', 'ownerType': 0, 'ownershipId': '6e5818a9994c11e9af8c02420a001304'}
+2019-06-28 10:28:34 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"操作成功",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454765076",
+	"responseTime":"2019-06-28 10:28:36"
+}
+2019-06-28 10:28:34 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 10:28:34 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 10:28:34 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 10:28:34 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 10:28:34 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 10:28:34 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 10:28:34 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 10:28:34 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 10:28:34 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 10:28:34 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "GET /records//api/v1/recordsBjPlot?plotName=%E5%A4%A9%E9%80%9A%E8%8B%91&district=17 HTTP/1.1" 200 None
+2019-06-28 10:28:34 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 10:28:34 INFO log_case_info [case_log.py-5] 执行用例：test_recordsBJplot
+2019-06-28 10:28:34 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/recordsBjPlot
+2019-06-28 10:28:34 INFO log_case_info [case_log.py-7] 请求数据：{'plotName': '天通苑', 'district': '17'}
+2019-06-28 10:28:34 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":[
+		{
+			"address":"东小口镇天通北苑二区",
+			"certAddress":"北七家镇天通北苑二区",
+			"districtId":17,
+			"id":18435,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18435,
+			"otherTitles":"",
+			"plotId":18715,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑北二区"
+		},
+		{
+			"address":"天通苑二区, 天通苑小区",
+			"certAddress":"东小口镇天通苑本二区",
+			"districtId":17,
+			"id":18436,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18436,
+			"otherTitles":"天通苑老二区",
+			"plotId":18716,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本二区"
+		},
+		{
+			"address":"天通苑六区",
+			"certAddress":"东小口镇天通苑本六区",
+			"districtId":17,
+			"id":18437,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18437,
+			"otherTitles":"天通苑六区",
+			"plotId":18717,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本六区"
+		},
+		{
+			"address":"天通北苑三区",
+			"certAddress":"北七家镇天通北苑三区",
+			"districtId":17,
+			"id":18438,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18438,
+			"otherTitles":"",
+			"plotId":18718,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑北三区"
+		},
+		{
+			"address":"天通苑三区",
+			"certAddress":"东小口镇天通苑本三区",
+			"districtId":17,
+			"id":18439,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18439,
+			"otherTitles":"天通苑三区",
+			"plotId":18719,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本三区"
+		},
+		{
+			"address":"太平庄东一路，天通苑老四区, 东小口镇天通苑小区",
+			"certAddress":"东小口镇天通苑本四区",
+			"districtId":17,
+			"id":18440,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18440,
+			"otherTitles":"天通苑四区",
+			"plotId":18720,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本四区"
+		},
+		{
+			"address":"立汤路天通苑五区, 东小口镇天通苑小区",
+			"certAddress":"东小口镇天通苑本五区",
+			"districtId":17,
+			"id":18441,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18441,
+			"otherTitles":"天通苑老五区",
+			"plotId":18721,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本五区"
+		},
+		{
+			"address":"天通北苑一区",
+			"certAddress":"东小口镇",
+			"districtId":17,
+			"id":18442,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18442,
+			"otherTitles":"",
+			"plotId":18722,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑北一区"
+		},
+		{
+			"address":"天通苑一区, 东小口镇天通苑小区",
+			"certAddress":"东小口镇天通苑本一区",
+			"districtId":17,
+			"id":18443,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18443,
+			"otherTitles":"天通苑老一区",
+			"plotId":18723,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本一区"
+		},
+		{
+			"address":"太平庄东一路",
+			"certAddress":"东小口镇天通东苑二区",
+			"districtId":17,
+			"id":18444,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18444,
+			"otherTitles":"东二区",
+			"plotId":18724,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑东二区"
+		},
+		{
+			"address":"太平庄东一路天通苑东三区",
+			"certAddress":"北七家镇天通东苑三区",
+			"districtId":17,
+			"id":18445,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18445,
+			"otherTitles":"法式园",
+			"plotId":18725,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑东三区"
+		},
+		{
+			"address":"东小口镇天通苑小区东苑",
+			"certAddress":"东小口镇天通东苑",
+			"districtId":17,
+			"id":18446,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18446,
+			"otherTitles":"",
+			"plotId":18726,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑东一区"
+		},
+		{
+			"address":"太平庄中街天通中苑",
+			"certAddress":"天通中苑",
+			"districtId":17,
+			"id":18452,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18452,
+			"otherTitles":"",
+			"plotId":18732,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑中苑"
+		}
+	],
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454961997",
+	"responseTime":"2019-06-28 10:28:37"
+}
+2019-06-28 10:28:34 INFO <module> [run.py-21] 测试结束==================================================
+2019-06-28 11:57:17 INFO <module> [run.py-10] 测试开始==================================================
+2019-06-28 11:57:17 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:57:18 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/landlord HTTP/1.1" 200 None
+2019-06-28 11:57:18 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 11:57:18 INFO log_case_info [case_log.py-5] 执行用例：test_landlord_new
+2019-06-28 11:57:18 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/landlord
+2019-06-28 11:57:18 INFO log_case_info [case_log.py-7] 请求数据：{'apartmentId': '18', 'cardName': '十里河佰汇', 'cardNo': '220422199006091234', 'cardType': 1, 'ifOwner': 0, 'landlordTitle': '十里河佰汇出租企业主体名称', 'landlordType': 1, 'mobile': '15910457777'}
+2019-06-28 11:57:18 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454876646",
+	"responseTime":"2019-06-28 11:57:20"
+}
+2019-06-28 11:57:18 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:57:18 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 11:57:18 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:57:18 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 11:57:18 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:57:18 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 11:57:18 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:57:18 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 11:57:18 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:57:18 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "GET /records//api/v1/landlord?apartmentId=18 HTTP/1.1" 200 None
+2019-06-28 11:57:18 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:57:18 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/landlord HTTP/1.1" 200 None
+2019-06-28 11:57:18 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 11:57:18 INFO log_case_info [case_log.py-5] 执行用例：test_landlord_alter
+2019-06-28 11:57:18 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/landlord
+2019-06-28 11:57:18 INFO log_case_info [case_log.py-7] 请求数据：{'apartmentId': '18', 'cardName': '十里河佰汇修改', 'cardNo': '220422199006091234', 'cardType': 1, 'ifOwner': 0, 'landlordId': 'f756d642973311e9af8c02420a001304', 'landlordTitle': '十里河佰汇出租企业主体名称修改', 'landlordType': 1, 'mobile': '15910457777'}
+2019-06-28 11:57:18 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454375251",
+	"responseTime":"2019-06-28 11:57:21"
+}
+2019-06-28 11:57:18 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:57:18 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 11:57:18 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:57:18 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 11:57:18 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:57:18 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 11:57:18 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:57:18 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 11:57:18 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:57:18 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/landlord HTTP/1.1" 200 None
+2019-06-28 11:57:18 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 11:57:18 INFO log_case_info [case_log.py-5] 执行用例：test_landlord_geren
+2019-06-28 11:57:18 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/landlord
+2019-06-28 11:57:18 INFO log_case_info [case_log.py-7] 请求数据：{'apartmentId': '15', 'cardName': '传媒大学1', 'cardNo': '220422199006096666', 'cardType': 1, 'ifOwner': 0, 'landlordTitle': '', 'landlordType': 0, 'mobile': '15910457777'}
+2019-06-28 11:57:18 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561455260420",
+	"responseTime":"2019-06-28 11:57:21"
+}
+2019-06-28 11:57:18 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='15'
+2019-06-28 11:57:18 DEBUG db_query [db.py-20] ((0, '', 1, '传媒大学1'),)
+2019-06-28 11:57:18 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='15'
+2019-06-28 11:57:18 DEBUG db_query [db.py-20] ((0, '', 1, '传媒大学1'),)
+2019-06-28 11:57:18 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='15'
+2019-06-28 11:57:18 DEBUG db_query [db.py-20] ((0, '', 1, '传媒大学1'),)
+2019-06-28 11:57:18 DEBUG db_query [db.py-14] select * from records_ownership_info where apartment_id='17'
+2019-06-28 11:57:18 DEBUG db_query [db.py-20] ((61, '6e5818a9994c11e9af8c02420a001304', 17, 1, None, '百子湾权证号修改001', 0, '百子湾花园修改', 0, b'7)KE\xfb\xf0\xeb^,\xb4o\xa7"\x030*\x0f\xbb\x1d\xb1\x1c.k\xc0\xf7\xc7r\xaf\x12&\xa8#', 'f65509b393230424c8dfc9e97d555e75', None, '7', '北京百子湾花园修改', None, None, None, None, None, 1561688915, 1561688916, 0, 0),)
+2019-06-28 11:57:18 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:57:19 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/ownership HTTP/1.1" 200 None
+2019-06-28 11:57:19 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 11:57:19 INFO log_case_info [case_log.py-5] 执行用例：test_ownership_new
+2019-06-28 11:57:19 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/ownership
+2019-06-28 11:57:19 INFO log_case_info [case_log.py-7] 请求数据：{'address': '北京百子湾花园', 'apartmentId': '17', 'certNo': '百子湾权证号001', 'certType': 1, 'ownerCardNo': '220422199009088888', 'ownerCardType': 0, 'ownerName': '百子湾花园', 'ownerType': 0, 'ownershipId': ''}
+2019-06-28 11:57:19 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"操作成功",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454765076",
+	"responseTime":"2019-06-28 11:57:21"
+}
+2019-06-28 11:57:19 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:57:19 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 11:57:19 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:57:19 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 11:57:19 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:57:19 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 11:57:19 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:57:19 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 11:57:19 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:57:19 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "GET /records//api/v1/ownership?apartmentId=17 HTTP/1.1" 200 None
+2019-06-28 11:57:19 DEBUG db_query [db.py-14] select ownership_id from records_ownership_info where apartment_id='17'
+2019-06-28 11:57:19 DEBUG db_query [db.py-20] (('d4b21d72995811e9af8c02420a001304',),)
+2019-06-28 11:57:19 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:57:19 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/ownership HTTP/1.1" 200 None
+2019-06-28 11:57:19 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 11:57:19 INFO log_case_info [case_log.py-5] 执行用例：test_ownership_alter
+2019-06-28 11:57:19 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/ownership
+2019-06-28 11:57:19 INFO log_case_info [case_log.py-7] 请求数据：{'address': '北京百子湾花园修改', 'apartmentId': '17', 'certNo': '百子湾权证号修改001', 'certType': 1, 'ownerCardNo': '220422199009088800', 'ownerCardType': 0, 'ownerName': '百子湾花园修改', 'ownerType': 0, 'ownershipId': 'd4b21d72995811e9af8c02420a001304'}
+2019-06-28 11:57:19 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"操作成功",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454790443",
+	"responseTime":"2019-06-28 11:57:21"
+}
+2019-06-28 11:57:19 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:57:19 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 11:57:19 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:57:19 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 11:57:19 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:57:19 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 11:57:19 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:57:19 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 11:57:19 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:57:19 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "GET /records//api/v1/recordsBjPlot?plotName=%E5%A4%A9%E9%80%9A%E8%8B%91&district=17 HTTP/1.1" 200 None
+2019-06-28 11:57:19 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 11:57:19 INFO log_case_info [case_log.py-5] 执行用例：test_recordsBJplot
+2019-06-28 11:57:19 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/recordsBjPlot
+2019-06-28 11:57:19 INFO log_case_info [case_log.py-7] 请求数据：{'plotName': '天通苑', 'district': '17'}
+2019-06-28 11:57:19 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":[
+		{
+			"address":"东小口镇天通北苑二区",
+			"certAddress":"北七家镇天通北苑二区",
+			"districtId":17,
+			"id":18435,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18435,
+			"otherTitles":"",
+			"plotId":18715,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑北二区"
+		},
+		{
+			"address":"天通苑二区, 天通苑小区",
+			"certAddress":"东小口镇天通苑本二区",
+			"districtId":17,
+			"id":18436,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18436,
+			"otherTitles":"天通苑老二区",
+			"plotId":18716,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本二区"
+		},
+		{
+			"address":"天通苑六区",
+			"certAddress":"东小口镇天通苑本六区",
+			"districtId":17,
+			"id":18437,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18437,
+			"otherTitles":"天通苑六区",
+			"plotId":18717,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本六区"
+		},
+		{
+			"address":"天通北苑三区",
+			"certAddress":"北七家镇天通北苑三区",
+			"districtId":17,
+			"id":18438,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18438,
+			"otherTitles":"",
+			"plotId":18718,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑北三区"
+		},
+		{
+			"address":"天通苑三区",
+			"certAddress":"东小口镇天通苑本三区",
+			"districtId":17,
+			"id":18439,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18439,
+			"otherTitles":"天通苑三区",
+			"plotId":18719,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本三区"
+		},
+		{
+			"address":"太平庄东一路，天通苑老四区, 东小口镇天通苑小区",
+			"certAddress":"东小口镇天通苑本四区",
+			"districtId":17,
+			"id":18440,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18440,
+			"otherTitles":"天通苑四区",
+			"plotId":18720,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本四区"
+		},
+		{
+			"address":"立汤路天通苑五区, 东小口镇天通苑小区",
+			"certAddress":"东小口镇天通苑本五区",
+			"districtId":17,
+			"id":18441,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18441,
+			"otherTitles":"天通苑老五区",
+			"plotId":18721,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本五区"
+		},
+		{
+			"address":"天通北苑一区",
+			"certAddress":"东小口镇",
+			"districtId":17,
+			"id":18442,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18442,
+			"otherTitles":"",
+			"plotId":18722,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑北一区"
+		},
+		{
+			"address":"天通苑一区, 东小口镇天通苑小区",
+			"certAddress":"东小口镇天通苑本一区",
+			"districtId":17,
+			"id":18443,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18443,
+			"otherTitles":"天通苑老一区",
+			"plotId":18723,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本一区"
+		},
+		{
+			"address":"太平庄东一路",
+			"certAddress":"东小口镇天通东苑二区",
+			"districtId":17,
+			"id":18444,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18444,
+			"otherTitles":"东二区",
+			"plotId":18724,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑东二区"
+		},
+		{
+			"address":"太平庄东一路天通苑东三区",
+			"certAddress":"北七家镇天通东苑三区",
+			"districtId":17,
+			"id":18445,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18445,
+			"otherTitles":"法式园",
+			"plotId":18725,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑东三区"
+		},
+		{
+			"address":"东小口镇天通苑小区东苑",
+			"certAddress":"东小口镇天通东苑",
+			"districtId":17,
+			"id":18446,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18446,
+			"otherTitles":"",
+			"plotId":18726,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑东一区"
+		},
+		{
+			"address":"太平庄中街天通中苑",
+			"certAddress":"天通中苑",
+			"districtId":17,
+			"id":18452,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18452,
+			"otherTitles":"",
+			"plotId":18732,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑中苑"
+		}
+	],
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454805567",
+	"responseTime":"2019-06-28 11:57:22"
+}
+2019-06-28 11:57:19 INFO <module> [run.py-18] 测试结束==================================================
+2019-06-28 11:58:19 INFO <module> [run.py-10] 测试开始==================================================
+2019-06-28 11:58:19 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:58:19 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/landlord HTTP/1.1" 200 None
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-5] 执行用例：test_landlord_new
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/landlord
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-7] 请求数据：{'apartmentId': '18', 'cardName': '十里河佰汇', 'cardNo': '220422199006091234', 'cardType': 1, 'ifOwner': 0, 'landlordTitle': '十里河佰汇出租企业主体名称', 'landlordType': 1, 'mobile': '15910457777'}
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561455272893",
+	"responseTime":"2019-06-28 11:58:22"
+}
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 11:58:20 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:58:20 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "GET /records//api/v1/landlord?apartmentId=18 HTTP/1.1" 200 None
+2019-06-28 11:58:20 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:58:20 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/landlord HTTP/1.1" 200 None
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-5] 执行用例：test_landlord_alter
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/landlord
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-7] 请求数据：{'apartmentId': '18', 'cardName': '十里河佰汇修改', 'cardNo': '220422199006091234', 'cardType': 1, 'ifOwner': 0, 'landlordId': 'f756d642973311e9af8c02420a001304', 'landlordTitle': '十里河佰汇出租企业主体名称修改', 'landlordType': 1, 'mobile': '15910457777'}
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561455283905",
+	"responseTime":"2019-06-28 11:58:22"
+}
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 11:58:20 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:58:20 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/landlord HTTP/1.1" 200 None
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-5] 执行用例：test_landlord_geren
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/landlord
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-7] 请求数据：{'apartmentId': '15', 'cardName': '传媒大学1', 'cardNo': '220422199006096666', 'cardType': 1, 'ifOwner': 0, 'landlordTitle': '', 'landlordType': 0, 'mobile': '15910457777'}
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454375251",
+	"responseTime":"2019-06-28 11:58:23"
+}
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='15'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] ((0, '', 1, '传媒大学1'),)
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='15'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] ((0, '', 1, '传媒大学1'),)
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='15'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] ((0, '', 1, '传媒大学1'),)
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select * from records_ownership_info where apartment_id='17'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] ((62, 'd4b21d72995811e9af8c02420a001304', 17, 1, None, '百子湾权证号修改001', 0, '百子湾花园修改', 0, b'7)KE\xfb\xf0\xeb^,\xb4o\xa7"\x030*\x0f\xbb\x1d\xb1\x1c.k\xc0\xf7\xc7r\xaf\x12&\xa8#', 'f65509b393230424c8dfc9e97d555e75', None, '7', '北京百子湾花园修改', None, None, None, None, None, 1561694241, 1561694241, 0, 0),)
+2019-06-28 11:58:20 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:58:20 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/ownership HTTP/1.1" 200 None
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-5] 执行用例：test_ownership_new
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/ownership
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-7] 请求数据：{'address': '北京百子湾花园', 'apartmentId': '17', 'certNo': '百子湾权证号001', 'certType': 1, 'ownerCardNo': '220422199009088888', 'ownerCardType': 0, 'ownerName': '百子湾花园', 'ownerType': 0, 'ownershipId': ''}
+2019-06-28 11:58:20 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"操作成功",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561455260420",
+	"responseTime":"2019-06-28 11:58:23"
+}
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 11:58:20 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:58:20 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 11:58:20 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:58:21 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "GET /records//api/v1/ownership?apartmentId=17 HTTP/1.1" 200 None
+2019-06-28 11:58:21 DEBUG db_query [db.py-14] select ownership_id from records_ownership_info where apartment_id='17'
+2019-06-28 11:58:22 DEBUG db_query [db.py-20] (('f98606eb995811e9af8c02420a001304',),)
+2019-06-28 11:58:22 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:58:22 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/ownership HTTP/1.1" 200 None
+2019-06-28 11:58:22 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 11:58:22 INFO log_case_info [case_log.py-5] 执行用例：test_ownership_alter
+2019-06-28 11:58:22 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/ownership
+2019-06-28 11:58:22 INFO log_case_info [case_log.py-7] 请求数据：{'address': '北京百子湾花园修改', 'apartmentId': '17', 'certNo': '百子湾权证号修改001', 'certType': 1, 'ownerCardNo': '220422199009088800', 'ownerCardType': 0, 'ownerName': '百子湾花园修改', 'ownerType': 0, 'ownershipId': 'f98606eb995811e9af8c02420a001304'}
+2019-06-28 11:58:22 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"操作成功",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454961997",
+	"responseTime":"2019-06-28 11:58:24"
+}
+2019-06-28 11:58:22 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:58:22 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 11:58:22 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:58:22 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 11:58:22 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:58:22 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 11:58:22 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 11:58:22 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 11:58:22 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 11:58:22 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "GET /records//api/v1/recordsBjPlot?plotName=%E5%A4%A9%E9%80%9A%E8%8B%91&district=17 HTTP/1.1" 200 None
+2019-06-28 11:58:22 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 11:58:22 INFO log_case_info [case_log.py-5] 执行用例：test_recordsBJplot
+2019-06-28 11:58:22 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/recordsBjPlot
+2019-06-28 11:58:22 INFO log_case_info [case_log.py-7] 请求数据：{'plotName': '天通苑', 'district': '17'}
+2019-06-28 11:58:22 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":[
+		{
+			"address":"东小口镇天通北苑二区",
+			"certAddress":"北七家镇天通北苑二区",
+			"districtId":17,
+			"id":18435,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18435,
+			"otherTitles":"",
+			"plotId":18715,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑北二区"
+		},
+		{
+			"address":"天通苑二区, 天通苑小区",
+			"certAddress":"东小口镇天通苑本二区",
+			"districtId":17,
+			"id":18436,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18436,
+			"otherTitles":"天通苑老二区",
+			"plotId":18716,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本二区"
+		},
+		{
+			"address":"天通苑六区",
+			"certAddress":"东小口镇天通苑本六区",
+			"districtId":17,
+			"id":18437,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18437,
+			"otherTitles":"天通苑六区",
+			"plotId":18717,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本六区"
+		},
+		{
+			"address":"天通北苑三区",
+			"certAddress":"北七家镇天通北苑三区",
+			"districtId":17,
+			"id":18438,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18438,
+			"otherTitles":"",
+			"plotId":18718,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑北三区"
+		},
+		{
+			"address":"天通苑三区",
+			"certAddress":"东小口镇天通苑本三区",
+			"districtId":17,
+			"id":18439,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18439,
+			"otherTitles":"天通苑三区",
+			"plotId":18719,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本三区"
+		},
+		{
+			"address":"太平庄东一路，天通苑老四区, 东小口镇天通苑小区",
+			"certAddress":"东小口镇天通苑本四区",
+			"districtId":17,
+			"id":18440,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18440,
+			"otherTitles":"天通苑四区",
+			"plotId":18720,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本四区"
+		},
+		{
+			"address":"立汤路天通苑五区, 东小口镇天通苑小区",
+			"certAddress":"东小口镇天通苑本五区",
+			"districtId":17,
+			"id":18441,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18441,
+			"otherTitles":"天通苑老五区",
+			"plotId":18721,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本五区"
+		},
+		{
+			"address":"天通北苑一区",
+			"certAddress":"东小口镇",
+			"districtId":17,
+			"id":18442,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18442,
+			"otherTitles":"",
+			"plotId":18722,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑北一区"
+		},
+		{
+			"address":"天通苑一区, 东小口镇天通苑小区",
+			"certAddress":"东小口镇天通苑本一区",
+			"districtId":17,
+			"id":18443,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18443,
+			"otherTitles":"天通苑老一区",
+			"plotId":18723,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本一区"
+		},
+		{
+			"address":"太平庄东一路",
+			"certAddress":"东小口镇天通东苑二区",
+			"districtId":17,
+			"id":18444,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18444,
+			"otherTitles":"东二区",
+			"plotId":18724,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑东二区"
+		},
+		{
+			"address":"太平庄东一路天通苑东三区",
+			"certAddress":"北七家镇天通东苑三区",
+			"districtId":17,
+			"id":18445,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18445,
+			"otherTitles":"法式园",
+			"plotId":18725,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑东三区"
+		},
+		{
+			"address":"东小口镇天通苑小区东苑",
+			"certAddress":"东小口镇天通东苑",
+			"districtId":17,
+			"id":18446,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18446,
+			"otherTitles":"",
+			"plotId":18726,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑东一区"
+		},
+		{
+			"address":"太平庄中街天通中苑",
+			"certAddress":"天通中苑",
+			"districtId":17,
+			"id":18452,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18452,
+			"otherTitles":"",
+			"plotId":18732,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑中苑"
+		}
+	],
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454790443",
+	"responseTime":"2019-06-28 11:58:25"
+}
+2019-06-28 11:58:22 INFO <module> [run.py-18] 测试结束==================================================
+2019-06-28 17:29:44 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 17:29:45 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "GET /records//api/v1/landlord?apartmentId=18 HTTP/1.1" 200 None
+2019-06-28 17:29:45 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 17:29:45 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/landlord HTTP/1.1" 200 None
+2019-06-28 17:29:45 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 17:29:45 INFO log_case_info [case_log.py-5] 执行用例：test_landlord_new
+2019-06-28 17:29:45 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/landlord
+2019-06-28 17:29:45 INFO log_case_info [case_log.py-7] 请求数据：{'apartmentId': '18', 'cardName': '十里河佰汇', 'cardNo': '220422199006091234', 'cardType': 1, 'ifOwner': 0, 'landlordTitle': '十里河佰汇出租企业主体名称', 'landlordType': 1, 'mobile': '15910457777'}
+2019-06-28 17:29:45 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561455272893",
+	"responseTime":"2019-06-28 17:29:47"
+}
+2019-06-28 17:29:45 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:29:45 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 17:29:45 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:29:45 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 17:29:45 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:29:45 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 17:29:45 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:29:45 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 17:31:03 INFO <module> [run.py-10] 测试开始==================================================
+2019-06-28 17:31:03 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 17:31:03 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/landlord HTTP/1.1" 200 None
+2019-06-28 17:31:03 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 17:31:03 INFO log_case_info [case_log.py-5] 执行用例：test_landlord_new
+2019-06-28 17:31:03 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/landlord
+2019-06-28 17:31:03 INFO log_case_info [case_log.py-7] 请求数据：{'apartmentId': '18', 'cardName': '十里河佰汇', 'cardNo': '220422199006091234', 'cardType': 1, 'ifOwner': 0, 'landlordTitle': '十里河佰汇出租企业主体名称', 'landlordType': 1, 'mobile': '15910457777'}
+2019-06-28 17:31:03 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561455283905",
+	"responseTime":"2019-06-28 17:31:05"
+}
+2019-06-28 17:31:03 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:31:03 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 17:31:03 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:31:03 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 17:31:03 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:31:03 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 17:31:03 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:31:03 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 17:31:03 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 17:31:04 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "GET /records//api/v1/landlord?apartmentId=18 HTTP/1.1" 200 None
+2019-06-28 17:31:04 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 17:31:04 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/landlord HTTP/1.1" 200 None
+2019-06-28 17:31:04 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 17:31:04 INFO log_case_info [case_log.py-5] 执行用例：test_landlord_alter
+2019-06-28 17:31:04 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/landlord
+2019-06-28 17:31:04 INFO log_case_info [case_log.py-7] 请求数据：{'apartmentId': '18', 'cardName': '十里河佰汇修改', 'cardNo': '220422199006091234', 'cardType': 1, 'ifOwner': 0, 'landlordId': 'f756d642973311e9af8c02420a001304', 'landlordTitle': '十里河佰汇出租企业主体名称修改', 'landlordType': 1, 'mobile': '15910457777'}
+2019-06-28 17:31:04 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561455260420",
+	"responseTime":"2019-06-28 17:31:06"
+}
+2019-06-28 17:31:04 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:31:04 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 17:31:04 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:31:04 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 17:31:04 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:31:04 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 17:31:04 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:31:04 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称修改', 1, '十里河佰汇修改'),)
+2019-06-28 17:31:04 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 17:31:04 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/landlord HTTP/1.1" 200 None
+2019-06-28 17:31:04 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 17:31:04 INFO log_case_info [case_log.py-5] 执行用例：test_landlord_geren
+2019-06-28 17:31:04 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/landlord
+2019-06-28 17:31:04 INFO log_case_info [case_log.py-7] 请求数据：{'apartmentId': '15', 'cardName': '传媒大学1', 'cardNo': '220422199006096666', 'cardType': 1, 'ifOwner': 0, 'landlordTitle': '', 'landlordType': 0, 'mobile': '15910457777'}
+2019-06-28 17:31:04 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454765076",
+	"responseTime":"2019-06-28 17:31:06"
+}
+2019-06-28 17:31:04 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='15'
+2019-06-28 17:31:04 DEBUG db_query [db.py-20] ((0, '', 1, '传媒大学1'),)
+2019-06-28 17:31:04 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='15'
+2019-06-28 17:31:04 DEBUG db_query [db.py-20] ((0, '', 1, '传媒大学1'),)
+2019-06-28 17:31:04 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='15'
+2019-06-28 17:31:04 DEBUG db_query [db.py-20] ((0, '', 1, '传媒大学1'),)
+2019-06-28 17:31:04 DEBUG db_query [db.py-14] select * from records_ownership_info where apartment_id='17'
+2019-06-28 17:31:04 DEBUG db_query [db.py-20] ((63, 'f98606eb995811e9af8c02420a001304', 17, 1, None, '百子湾权证号修改001', 0, '百子湾花园修改', 0, b'7)KE\xfb\xf0\xeb^,\xb4o\xa7"\x030*\x0f\xbb\x1d\xb1\x1c.k\xc0\xf7\xc7r\xaf\x12&\xa8#', 'f65509b393230424c8dfc9e97d555e75', None, '7', '北京百子湾花园修改', None, None, None, None, None, 1561694303, 1561694304, 0, 0),)
+2019-06-28 17:31:04 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 17:31:04 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/ownership HTTP/1.1" 200 None
+2019-06-28 17:31:04 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 17:31:04 INFO log_case_info [case_log.py-5] 执行用例：test_ownership_new
+2019-06-28 17:31:04 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/ownership
+2019-06-28 17:31:04 INFO log_case_info [case_log.py-7] 请求数据：{'address': '北京百子湾花园', 'apartmentId': '17', 'certNo': '百子湾权证号001', 'certType': 1, 'ownerCardNo': '220422199009088888', 'ownerCardType': 0, 'ownerName': '百子湾花园', 'ownerType': 0, 'ownershipId': ''}
+2019-06-28 17:31:04 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"操作成功",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454961997",
+	"responseTime":"2019-06-28 17:31:07"
+}
+2019-06-28 17:31:04 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 17:31:04 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 17:31:04 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 17:31:05 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 17:31:05 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 17:31:05 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 17:31:05 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 17:31:05 DEBUG db_query [db.py-20] (('北京百子湾花园', '百子湾权证号001', '百子湾花园', 0),)
+2019-06-28 17:31:05 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 17:31:05 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "GET /records//api/v1/ownership?apartmentId=17 HTTP/1.1" 200 None
+2019-06-28 17:31:05 DEBUG db_query [db.py-14] select ownership_id from records_ownership_info where apartment_id='17'
+2019-06-28 17:31:05 DEBUG db_query [db.py-20] (('74ccee90998711e9af8c02420a001304',),)
+2019-06-28 17:31:05 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 17:31:05 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/ownership HTTP/1.1" 200 None
+2019-06-28 17:31:05 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 17:31:05 INFO log_case_info [case_log.py-5] 执行用例：test_ownership_alter
+2019-06-28 17:31:05 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/ownership
+2019-06-28 17:31:05 INFO log_case_info [case_log.py-7] 请求数据：{'address': '北京百子湾花园修改', 'apartmentId': '17', 'certNo': '百子湾权证号修改001', 'certType': 1, 'ownerCardNo': '220422199009088800', 'ownerCardType': 0, 'ownerName': '百子湾花园修改', 'ownerType': 0, 'ownershipId': '74ccee90998711e9af8c02420a001304'}
+2019-06-28 17:31:05 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"操作成功",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454805567",
+	"responseTime":"2019-06-28 17:31:07"
+}
+2019-06-28 17:31:05 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 17:31:05 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 17:31:05 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 17:31:05 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 17:31:05 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 17:31:06 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 17:31:06 DEBUG db_query [db.py-14] select address,cert_no,owner_name,owner_type from records_ownership_info where apartment_id='17'
+2019-06-28 17:31:06 DEBUG db_query [db.py-20] (('北京百子湾花园修改', '百子湾权证号修改001', '百子湾花园修改', 0),)
+2019-06-28 17:31:06 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 17:31:06 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "GET /records//api/v1/recordsBjPlot?plotName=%E5%A4%A9%E9%80%9A%E8%8B%91&district=17 HTTP/1.1" 200 None
+2019-06-28 17:31:06 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 17:31:06 INFO log_case_info [case_log.py-5] 执行用例：test_recordsBJplot
+2019-06-28 17:31:06 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/recordsBjPlot
+2019-06-28 17:31:06 INFO log_case_info [case_log.py-7] 请求数据：{'plotName': '天通苑', 'district': '17'}
+2019-06-28 17:31:06 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":[
+		{
+			"address":"东小口镇天通北苑二区",
+			"certAddress":"北七家镇天通北苑二区",
+			"districtId":17,
+			"id":18435,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18435,
+			"otherTitles":"",
+			"plotId":18715,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑北二区"
+		},
+		{
+			"address":"天通苑二区, 天通苑小区",
+			"certAddress":"东小口镇天通苑本二区",
+			"districtId":17,
+			"id":18436,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18436,
+			"otherTitles":"天通苑老二区",
+			"plotId":18716,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本二区"
+		},
+		{
+			"address":"天通苑六区",
+			"certAddress":"东小口镇天通苑本六区",
+			"districtId":17,
+			"id":18437,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18437,
+			"otherTitles":"天通苑六区",
+			"plotId":18717,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本六区"
+		},
+		{
+			"address":"天通北苑三区",
+			"certAddress":"北七家镇天通北苑三区",
+			"districtId":17,
+			"id":18438,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18438,
+			"otherTitles":"",
+			"plotId":18718,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑北三区"
+		},
+		{
+			"address":"天通苑三区",
+			"certAddress":"东小口镇天通苑本三区",
+			"districtId":17,
+			"id":18439,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18439,
+			"otherTitles":"天通苑三区",
+			"plotId":18719,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本三区"
+		},
+		{
+			"address":"太平庄东一路，天通苑老四区, 东小口镇天通苑小区",
+			"certAddress":"东小口镇天通苑本四区",
+			"districtId":17,
+			"id":18440,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18440,
+			"otherTitles":"天通苑四区",
+			"plotId":18720,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本四区"
+		},
+		{
+			"address":"立汤路天通苑五区, 东小口镇天通苑小区",
+			"certAddress":"东小口镇天通苑本五区",
+			"districtId":17,
+			"id":18441,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18441,
+			"otherTitles":"天通苑老五区",
+			"plotId":18721,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本五区"
+		},
+		{
+			"address":"天通北苑一区",
+			"certAddress":"东小口镇",
+			"districtId":17,
+			"id":18442,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18442,
+			"otherTitles":"",
+			"plotId":18722,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑北一区"
+		},
+		{
+			"address":"天通苑一区, 东小口镇天通苑小区",
+			"certAddress":"东小口镇天通苑本一区",
+			"districtId":17,
+			"id":18443,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18443,
+			"otherTitles":"天通苑老一区",
+			"plotId":18723,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本一区"
+		},
+		{
+			"address":"太平庄东一路",
+			"certAddress":"东小口镇天通东苑二区",
+			"districtId":17,
+			"id":18444,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18444,
+			"otherTitles":"东二区",
+			"plotId":18724,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑东二区"
+		},
+		{
+			"address":"太平庄东一路天通苑东三区",
+			"certAddress":"北七家镇天通东苑三区",
+			"districtId":17,
+			"id":18445,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18445,
+			"otherTitles":"法式园",
+			"plotId":18725,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑东三区"
+		},
+		{
+			"address":"东小口镇天通苑小区东苑",
+			"certAddress":"东小口镇天通东苑",
+			"districtId":17,
+			"id":18446,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18446,
+			"otherTitles":"",
+			"plotId":18726,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑东一区"
+		},
+		{
+			"address":"太平庄中街天通中苑",
+			"certAddress":"天通中苑",
+			"districtId":17,
+			"id":18452,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18452,
+			"otherTitles":"",
+			"plotId":18732,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑中苑"
+		}
+	],
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561455098947",
+	"responseTime":"2019-06-28 17:31:08"
+}
+2019-06-28 17:31:06 INFO <module> [run.py-18] 测试结束==================================================
+2019-06-28 17:31:21 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 17:31:22 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "POST /records//api/v1/landlord HTTP/1.1" 200 None
+2019-06-28 17:31:22 INFO log_case_info [case_log.py-4] --------------------------------------------------
+2019-06-28 17:31:22 INFO log_case_info [case_log.py-5] 执行用例：test_landlord_new
+2019-06-28 17:31:22 INFO log_case_info [case_log.py-6] 接口地址:https://api-test.lefull.cn/records//api/v1/landlord
+2019-06-28 17:31:22 INFO log_case_info [case_log.py-7] 请求数据：{'apartmentId': '18', 'cardName': '十里河佰汇', 'cardNo': '220422199006091234', 'cardType': 1, 'ifOwner': 0, 'landlordTitle': '十里河佰汇出租企业主体名称', 'landlordType': 1, 'mobile': '15910457777'}
+2019-06-28 17:31:22 INFO log_case_info [case_log.py-8] 实际结果：{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561455272893",
+	"responseTime":"2019-06-28 17:31:24"
+}
+2019-06-28 17:31:22 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:31:22 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 17:31:22 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:31:22 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 17:31:22 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:31:22 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 17:31:22 DEBUG db_query [db.py-14] select landlord_type,landlord_title,card_type,card_name from records_landlord_info where apartment_id='18'
+2019-06-28 17:31:22 DEBUG db_query [db.py-20] ((1, '十里河佰汇出租企业主体名称', 1, '十里河佰汇'),)
+2019-06-28 17:31:22 DEBUG _new_conn [connectionpool.py-813] Starting new HTTPS connection (1): api-test.lefull.cn:443
+2019-06-28 17:31:22 DEBUG _make_request [connectionpool.py-393] https://api-test.lefull.cn:443 "GET /records//api/v1/landlord?apartmentId=18 HTTP/1.1" 200 None

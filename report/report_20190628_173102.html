@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>乐乎-监管平台接口测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 80%; }
+table       { font-size: 100%; }
+
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+
+/*level 调整增加只显示通过用例的分类 --Findyou
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+	//console.log(detail_class.length)
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="收起"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="详细"
+		}
+	}
+}
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+</script>
+<div class='heading'>
+<h1 style="font-family: Microsoft YaHei">乐乎-监管平台接口测试报告</h1>
+<p class='attribute'><strong>测试人员 : </strong> 刘亚男</p>
+<p class='attribute'><strong>开始时间 : </strong> 2019-06-28 17:31:03</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:03.010949</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 8，通过 8，通过率= 100.00%</p>
+
+<p class='description'>测试报告</p>
+</div>
+
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 8 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 8 }</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>详细</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_landlord.TestLandLord</td>
+    <td class="text-center">4</td>
+    <td class="text-center">4</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',4)" class="detail" id='c1'>详细</a></td>
+</tr>
+
+<tr id='pt1_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_1_landlord_new</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse in">
+    <pre>
+    
+pt1_1: 新增甲方信息
+{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561455283905",
+	"responseTime":"2019-06-28 17:31:05"
+}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_2_landlord_query</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse in">
+    <pre>
+    
+pt1_2: 通过门店id查询甲方信息
+{
+	"code":"200",
+	"data":{
+		"apartmentId":"18",
+		"cardName":"十里河佰汇",
+		"cardNo":"220422199006091234",
+		"cardNoMd5":"",
+		"cardType":1,
+		"createTime":1561458506,
+		"deleteStatus":0,
+		"deleteTime":0,
+		"id":0,
+		"ifOwner":0,
+		"landlordId":"f756d642973311e9af8c02420a001304",
+		"landlordTitle":"十里河佰汇出租企业主体名称",
+		"landlordType":1,
+		"mobile":"15910457777",
+		"mobileMd5":"",
+		"updateTime":1561714265
+	},
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454375251",
+	"responseTime":"2019-06-28 17:31:06"
+}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_3_landlord_alter</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
+    <div id='div_pt1_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
+    <div id='div_pt1_3' class="collapse in">
+    <pre>
+    
+pt1_3: 修改甲方信息
+{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561455260420",
+	"responseTime":"2019-06-28 17:31:06"
+}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_4_landlord_geren</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_4'>通过</button>
+    <div id='div_pt1_4' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_4'>通过</button>
+    <div id='div_pt1_4' class="collapse in">
+    <pre>
+    
+pt1_4: 新增甲方信息-出租主体是个人时
+{
+	"code":"200",
+	"data":"",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454765076",
+	"responseTime":"2019-06-28 17:31:06"
+}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_ownership.TestOwnerShip</td>
+    <td class="text-center">3</td>
+    <td class="text-center">3</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c2',3)" class="detail" id='c2'>详细</a></td>
+</tr>
+
+<tr id='pt2_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_1_ownership_new</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse in">
+    <pre>
+    
+pt2_1: 新增权证信息
+{
+	"code":"200",
+	"data":"操作成功",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454961997",
+	"responseTime":"2019-06-28 17:31:07"
+}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_2_ownership_query</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_2'>通过</button>
+    <div id='div_pt2_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_2'>通过</button>
+    <div id='div_pt2_2' class="collapse in">
+    <pre>
+    
+pt2_2: 查询权证信息
+{
+	"code":"200",
+	"data":{
+		"address":"北京百子湾花园",
+		"apartmentId":"17",
+		"auditStatus":0,
+		"buildArea":0,
+		"certDescription":"",
+		"certNo":"百子湾权证号001",
+		"certType":1,
+		"createTime":1561714267,
+		"deleteStatus":0,
+		"deleteTime":0,
+		"designUsage":"",
+		"districtCode":"7",
+		"houseCode":"",
+		"id":64,
+		"ifResidence":0,
+		"ownerCardNo":"220422199009088888",
+		"ownerCardNoMd5":"",
+		"ownerCardType":0,
+		"ownerName":"百子湾花园",
+		"ownerType":0,
+		"ownershipId":"74ccee90998711e9af8c02420a001304",
+		"resultsContent":"",
+		"updateTime":0
+	},
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454790443",
+	"responseTime":"2019-06-28 17:31:07"
+}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_3_ownership_alter</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_3'>通过</button>
+    <div id='div_pt2_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_3'>通过</button>
+    <div id='div_pt2_3' class="collapse in">
+    <pre>
+    
+pt2_3: 修改权证信息
+{
+	"code":"200",
+	"data":"操作成功",
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561454805567",
+	"responseTime":"2019-06-28 17:31:07"
+}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_recordsbjplot.TestRecordsBJPlot</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c3',1)" class="detail" id='c3'>详细</a></td>
+</tr>
+
+<tr id='pt3_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_recordsbjplot</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt3_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_1'>通过</button>
+    <div id='div_pt3_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt3_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt3_1'>通过</button>
+    <div id='div_pt3_1' class="collapse in">
+    <pre>
+    
+pt3_1: 根据小区名称和区县id查询小区信息
+{
+	"code":"200",
+	"data":[
+		{
+			"address":"东小口镇天通北苑二区",
+			"certAddress":"北七家镇天通北苑二区",
+			"districtId":17,
+			"id":18435,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18435,
+			"otherTitles":"",
+			"plotId":18715,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑北二区"
+		},
+		{
+			"address":"天通苑二区, 天通苑小区",
+			"certAddress":"东小口镇天通苑本二区",
+			"districtId":17,
+			"id":18436,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18436,
+			"otherTitles":"天通苑老二区",
+			"plotId":18716,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本二区"
+		},
+		{
+			"address":"天通苑六区",
+			"certAddress":"东小口镇天通苑本六区",
+			"districtId":17,
+			"id":18437,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18437,
+			"otherTitles":"天通苑六区",
+			"plotId":18717,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本六区"
+		},
+		{
+			"address":"天通北苑三区",
+			"certAddress":"北七家镇天通北苑三区",
+			"districtId":17,
+			"id":18438,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18438,
+			"otherTitles":"",
+			"plotId":18718,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑北三区"
+		},
+		{
+			"address":"天通苑三区",
+			"certAddress":"东小口镇天通苑本三区",
+			"districtId":17,
+			"id":18439,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18439,
+			"otherTitles":"天通苑三区",
+			"plotId":18719,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本三区"
+		},
+		{
+			"address":"太平庄东一路，天通苑老四区, 东小口镇天通苑小区",
+			"certAddress":"东小口镇天通苑本四区",
+			"districtId":17,
+			"id":18440,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18440,
+			"otherTitles":"天通苑四区",
+			"plotId":18720,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本四区"
+		},
+		{
+			"address":"立汤路天通苑五区, 东小口镇天通苑小区",
+			"certAddress":"东小口镇天通苑本五区",
+			"districtId":17,
+			"id":18441,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18441,
+			"otherTitles":"天通苑老五区",
+			"plotId":18721,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本五区"
+		},
+		{
+			"address":"天通北苑一区",
+			"certAddress":"东小口镇",
+			"districtId":17,
+			"id":18442,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18442,
+			"otherTitles":"",
+			"plotId":18722,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑北一区"
+		},
+		{
+			"address":"天通苑一区, 东小口镇天通苑小区",
+			"certAddress":"东小口镇天通苑本一区",
+			"districtId":17,
+			"id":18443,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18443,
+			"otherTitles":"天通苑老一区",
+			"plotId":18723,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑本一区"
+		},
+		{
+			"address":"太平庄东一路",
+			"certAddress":"东小口镇天通东苑二区",
+			"districtId":17,
+			"id":18444,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18444,
+			"otherTitles":"东二区",
+			"plotId":18724,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑东二区"
+		},
+		{
+			"address":"太平庄东一路天通苑东三区",
+			"certAddress":"北七家镇天通东苑三区",
+			"districtId":17,
+			"id":18445,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18445,
+			"otherTitles":"法式园",
+			"plotId":18725,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑东三区"
+		},
+		{
+			"address":"东小口镇天通苑小区东苑",
+			"certAddress":"东小口镇天通东苑",
+			"districtId":17,
+			"id":18446,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18446,
+			"otherTitles":"",
+			"plotId":18726,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑东一区"
+		},
+		{
+			"address":"太平庄中街天通中苑",
+			"certAddress":"天通中苑",
+			"districtId":17,
+			"id":18452,
+			"lat":0,
+			"lng":0,
+			"modifySeqNo":18452,
+			"otherTitles":"",
+			"plotId":18732,
+			"rentDescription":"",
+			"rentStatus":1,
+			"title":"天通苑中苑"
+		}
+	],
+	"msg":"成功",
+	"requestSeqNo":"wt_null_1561455098947",
+	"responseTime":"2019-06-28 17:31:08"
+}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>总计</td>
+    <td>8</td>
+    <td>8</td>
+    <td>0</td>
+    <td>0</td>
+    <td>通过率：100.00%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+
+</body>
+</html>
